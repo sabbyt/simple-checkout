@@ -22,6 +22,8 @@ function mbpPromoCalculator(items, products) {
         items['vga'].free = items['mbp'].quantity;
       } else {
         items['vga'].discount = items['mbp'].quantity * products['vga'].price;
+        // If more VGAs than MBP, mbp.quantity should always match vga.free
+        items['vga'].free = items['mbp'].quantity;
       }
     } else {
       // If no VGA in checkoutBag, inits product in checkoutBag
@@ -58,6 +60,7 @@ new Vue({
       }
     },
     checkoutBag: {},
+    scanOrder: [],
     checkoutTotal: 0,
     // An array of active promotions to easily remove/add promos
     activePromotions: [
@@ -68,6 +71,8 @@ new Vue({
   },
   methods: {
     scan: function (sku) {
+      // Just keeping track of scans
+      this.scanOrder.push(sku);
       // "Scans" item and puts into user checkoutBag
       if (this.checkoutBag[sku]) {
         // Updates quantity of item in checkoutBag
@@ -123,4 +128,4 @@ new Vue({
 // scan("ipd");
 
 // Check totals
-console.log(((1399.99*0) + (549.99*0) + (109.50 * 4) + (30 * 0) - (50 * 0)).toFixed(2))
+// console.log(((1399.99*0) + (549.99*0) + (109.50 * 0) + (30 * 0) - (50 * 0)).toFixed(2))

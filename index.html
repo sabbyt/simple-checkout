@@ -23,6 +23,9 @@
           <li class="nav-item">
             <a class="nav-item nav-link" href="https://www.linkedin.com/in/sabrinatee/" target="_blank">LinkedIn</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-item nav-link" href="https://github.com/sabbyt/simple-checkout" target="_blank">Project Code</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -58,9 +61,11 @@
             <tr>
               <td colspan="3">Total: $ {{ checkoutTotal }}</td>
             </tr>
+            <tr>
+              <td colspan="3">Scanned: {{ scanOrder.join(', ')}}</td>
+            </tr>
           </tbody>
         </table>
-        {{ checkoutBag }}
       </div>
     </div>
   </div>
