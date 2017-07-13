@@ -1,0 +1,73 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Digi-X Store</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Signika" rel="stylesheet">
+  <link rel='stylesheet' href='./styles/index.css'/>
+</head>
+<body>
+  <nav class="navbar navbar-toggleable-md navbar-light">
+    <div class="container">
+      <a class="navbar-brand" href="https://www.digi-x.my/" target="_blank">
+        <img src="./assets/dx-black.png" width="65" height="40" alt="">
+      </a>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-item nav-link active" href="#">Store <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-item nav-link" href="https://github.com/sabbyt/" target="_blank">Github</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-item nav-link" href="https://www.linkedin.com/in/sabrinatee/" target="_blank">LinkedIn</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container" id="app">
+    <div class="row">
+      <div class="col main-body">
+        <div class="card">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item list-group-item-action flex-column align-items-start"><h4>PRODUCTS:</h4></li>
+            <div class="d-flex w-100 justify-content-between list-group-item" v-for="(product, key, index) in products">
+              <h5 class="mb-1">{{ product.name }}</h5>
+              <button class="btn btn-primary" v-on:click="scan(key)">Scan</button>
+            </div>
+          </ul>
+        </div>
+      </div>
+      <div class="col main-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Quantity</th>
+              <th>Free</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr v-for="(item, key) in checkoutBag">
+              <td>{{ products[key].name }}</td>
+              <td>{{ item.quantity }}</td>
+              <td>{{ item.free }}</td>
+            </tr>
+            <tr>
+              <td colspan="3">Total: $ {{ checkoutTotal }}</td>
+            </tr>
+          </tbody>
+        </table>
+        {{ checkoutBag }}
+      </div>
+    </div>
+  </div>
+</body>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.1/vue.min.js"></script>
+<script src="./app.js"></script>
+</html>

@@ -1,0 +1,25 @@
+body {
+  font-family: 'Signika', sans-serif;
+}
+
+.main-body {
+  margin-top: 20px;
+}
+
+.navbar {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+.navbar-brand {
+  padding-right: 2em;
+}
+
+#navbarNav a {
+  font-size: 18px;
+  font-weight: 'bold';
+  padding-right: 2.5em;
+  color: rgb(13, 208, 221);
+  letter-spacing: 0.2;
+}
